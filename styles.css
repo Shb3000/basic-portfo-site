@@ -1,0 +1,358 @@
+/* =========================================================
+   1. VARIABLES
+   Keep the whole color/spacing system in one place so you
+   can restyle the entire site by changing a few values here.
+   ========================================================= */
+:root {
+  --bg: #EEF1EF;          /* page background, soft cool gray */
+  --surface: #FFFFFF;     /* cards / raised sections */
+  --ink: #17211D;         /* main text color, near-black green */
+  --muted: #55625B;       /* secondary text */
+  --accent: #2F6F63;      /* deep teal-green, used sparingly */
+  --accent-light: #E4EEEB;/* light tint of the accent, for tags/badges */
+  --border: #D8DED9;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --max-width: 880px;
+}
+
+/* =========================================================
+   2. RESET
+   A few basics so every browser starts from the same place.
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reusable content wrapper: keeps text from stretching too
+   wide on large screens. */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin-bottom: 40px;
+}
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--accent);
+}
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+.hero {
+  padding: 100px 0 90px;
+}
+
+.hero-tag {
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 22px;
+}
+
+.hero-text {
+  max-width: 480px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Buttons: one primary (filled) and one secondary (outline) */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(47, 111, 99, 0.3);
+}
+.bullet {
+  position: relative;
+  margin-top: 0.5%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+/* =========================================================
+   5. PROJECTS
+   ========================================================= */
+.projects {
+  background: var(--surface);
+  padding: 90px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  transition: border-color 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+}
+
+.project-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.project-body p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.project-link {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* =========================================================
+   6. SKILLS
+   ========================================================= */
+.skills {
+  padding: 90px 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.skill-group h3 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.skill-group li {
+  color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-group li:last-child {
+  border-bottom: none;
+}
+
+/* =========================================================
+   7. ABOUT
+   ========================================================= */
+.about {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 90px 0;
+}
+
+.about-inner p {
+  color: var(--muted);
+  max-width: 620px;
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   8. CONTACT
+   ========================================================= */
+.contact {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.contact-inner p {
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto 32px;
+}
+
+.contact .btn-primary {
+  margin-bottom: 30px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.socials a {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.socials a:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   9. FOOTER
+   ========================================================= */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   10. RESPONSIVE
+   Below 700px: stack the nav, shrink the hero, and let the
+   skills grid drop to a single column.
+   ========================================================= */
+@media (max-width: 700px) {
+  .hero {
+    padding: 70px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 0.85rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
