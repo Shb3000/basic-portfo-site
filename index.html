@@ -17,12 +17,15 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="logo">shb</a>
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-right">
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">🌙</button>
+      </div>
     </div>
   </header>
 
@@ -30,19 +33,16 @@
   <section class="hero" id="top">
     <div class="container hero-inner">
       <p class="hero-tag">Computer Science student</p>
-      <h1>I make idiea come to life.</h1>
+      <h1>I make ideas come to life.</h1>
       <p class="hero-text">
         Hey I'm Shayan. I'm someone who likes making things — whether that's 3D scenes in Blender, code, or just figuring out how something works well enough to build it myself.
-        <div class="bullet">
-          <li>
-            🎨 <b>Blender enthusiast</b> — I mess around with 3D modeling, rendering, and general Blender wizardry. Always chasing that next cool scene or render.
-        </li>
+      </p>
+      <ul class="hero-list">
+        <li>🎨 <b>Blender enthusiast</b> — I mess around with 3D modeling, rendering, and general Blender wizardry. Always chasing that next cool scene or render.</li>
         <li>🐍 <b>Python</b> — comfortable writing Python and using it to get things done.</li>
         <li>🌐 <b>web dev</b> — working through HTML/CSS and moving into JavaScript. Building as I go.</li>
         <li>🕹️ <b>game dev</b> — dabbled in building games, which pairs pretty nicely with the Blender side of things.</li>
-        
-        </div>
-      </p>
+      </ul>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">See my work</a>
         <a href="#contact" class="btn btn-secondary">Get in touch</a>
@@ -72,6 +72,7 @@
             </div>
             <a href="#" class="project-link">View project →</a>
           </div>
+        </article>
 
       </div>
     </div>
@@ -88,7 +89,6 @@
             <li>HTML &amp; CSS</li>
             <li>JavaScript</li>
             <li>Python</li>
-            
           </ul>
         </div>
         <div class="skill-group">
@@ -118,7 +118,7 @@
       <p>
         I'm a computer science student who likes taking things apart to
         understand how they work, then rebuilding them better. Outside of
-        class, I spend my time on personal coding projects,3d art, reading, and
+        class, I spend my time on personal coding projects, 3D art, reading, and
         slowly working through a long list of things I want to learn.
       </p>
       <p>
@@ -148,9 +148,12 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 shayan. Built with HTML &amp; CSS.</p>
+      <p>&copy; <span id="year">2026</span> shayan. Built with HTML, CSS &amp; JavaScript.</p>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>

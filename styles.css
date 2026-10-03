@@ -18,6 +18,18 @@
   --max-width: 880px;
 }
 
+/* Dark theme: script.js sets data-theme="dark" on <html>.
+   Only the colors change; everything else stays the same. */
+:root[data-theme="dark"] {
+  --bg: #101614;
+  --surface: #17211D;
+  --ink: #E8EEEB;
+  --muted: #9AA9A2;
+  --accent: #5FB3A1;
+  --accent-light: #1F332E;
+  --border: #2A3833;
+}
+
 /* =========================================================
    2. RESET
    A few basics so every browser starts from the same place.
@@ -38,6 +50,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   font-size: 16px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -92,6 +105,12 @@ h2 {
   padding-bottom: 18px;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .logo {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -110,8 +129,25 @@ h2 {
 }
 
 .nav a:hover,
-.nav a:focus-visible {
+.nav a:focus-visible,
+.nav a.active {
   color: var(--accent);
+}
+
+/* Theme toggle button (sun / moon) */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
 }
 
 /* =========================================================
@@ -135,7 +171,21 @@ h2 {
 .hero-text {
   max-width: 480px;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.hero-list {
+  max-width: 560px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+.hero-list li {
+  padding: 8px 0;
+}
+
+.hero-list b {
+  color: var(--ink);
 }
 
 .hero-actions {
@@ -171,12 +221,6 @@ h2 {
 
 .btn-primary:hover {
   box-shadow: 0 6px 16px rgba(47, 111, 99, 0.3);
-}
-.bullet {
-  position: relative;
-  margin-top: 0.5%;
-  margin-left: 10%;
-  margin-bottom: 10%;
 }
 
 /* =========================================================
@@ -326,7 +370,35 @@ h2 {
 }
 
 /* =========================================================
-   10. RESPONSIVE
+   10. BACK TO TOP BUTTON
+   Hidden until script.js adds the "visible" class.
+   ========================================================= */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   11. RESPONSIVE
    Below 700px: stack the nav, shrink the hero, and let the
    skills grid drop to a single column.
    ========================================================= */
@@ -337,6 +409,10 @@ h2 {
 
   .hero h1 {
     font-size: 2.2rem;
+  }
+
+  .header-right {
+    gap: 12px;
   }
 
   .nav {
